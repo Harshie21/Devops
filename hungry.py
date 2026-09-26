@@ -2,7 +2,9 @@ hungry=input("Are u hungry:")
 if hungry=='yes':
 print("Samosa");
 print("Burger");
-print("Fries");
 print("Pizza");
 else:
-print("do homework");
+thirsty=input("Are u thirsty:");
+if thirsty=="yes":
+print("water");
+print("soda");
