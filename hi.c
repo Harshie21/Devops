@@ -1,4 +1,4 @@
 #include<stdio.h>
 void main(){
-  print("Hi!")
+  print("Hi! Welcome!")
 }
