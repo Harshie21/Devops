@@ -1,0 +1,27 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test {
+    public static void main(String[] args) {
+
+        WebDriver driver = new ChromeDriver();
+
+        // Test case 1: Open Google
+        driver.get("https://www.google.com");
+        System.out.println("Google opened successfully");
+
+        // Test case 2: Search for Selenium
+        driver.findElement(By.name("q"))
+              .sendKeys("Selenium WebDriver", Keys.ENTER);
+        System.out.println("Search performed successfully");
+
+        // Test case 3: Get page title
+        System.out.println("Page title: " + driver.getTitle());
+
+        // Close browser
+        driver.quit();
+        System.out.println("Browser closed");
+    }
+}
