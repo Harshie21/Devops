@@ -1,68 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Event Registration</title>
+    <title>Event Registration Form</title>
 
     <style>
-        .form-box {
-          width: 450px;
-          padding: 30px; 
-          border: 2px solid black; 
-          margin: auto;
+        body {
+            font-family: Arial;
+            background: lightblue;
         }
-        button {
-          display: block;
-          margin: auto;
-          padding: 25px;
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+        }
+
+        h2 {
+          color:darkblue;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background: green;
+            color: white;
+            margin-top: 15px;
+            border: none;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="form-box">
-        <h2>Event Registration Form</h2>
+<div class="container">
 
-        <form onsubmit="register(event)">
-            <label>Name:</label>
-            <input type="text" id="name" required>
-            <br><br>
+    <h2>Event Registration Form</h2>
 
-            <label>Mobile Number:</label>
-            <input type="tel" id="mobile" required>
-            <br><br>
+    <form onsubmit="register(event)">
 
-            <label>Email:</label>
-            <input type="email" id="email" required>
-            <br><br>
+        <label>Full Name</label>
+        <input type="text" id="name" required>
 
-            <label>Select Event:</label>
-            <select id="event" required>
-                <option value="">Choose an event</option>
-                <option>Workshop</option>
-                <option>Seminar</option>
-                <option>Hackathon</option>
-            </select>
-            <br><br>
+        <label>Phone Number</label>
+        <input type="tel" required>
 
-            <button type="submit">Register</button>
-        </form>
+        <label>Email</label>
+        <input type="email" required>
 
-        <p id="message"></p>
-    </div>
+        <label>Event</label>
+        <select id="event" required>
+            <option value="">Choose an event</option>
+            <option>Workshop</option>
+            <option>Hackathon</option>
+            <option>Seminar</option>
+        </select>
 
-    <script>
-        function register(event) {
-            event.preventDefault();
+        <input type="submit" value="Register">
 
-            let name = document.getElementById("name").value;
-            let selectedEvent = document.getElementById("event").value;
+    </form>
 
-            document.getElementById("message").innerHTML =
-                "Registration Successful!<br>" +
-                "Welcome, " + name +
-                "<br>Event: " + selectedEvent;
-        }
-    </script>
+    <p id="message"></p>
+
+</div>
+
+<script>
+    function register(event) {
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let selectedEvent = document.getElementById("event").value;
+
+        document.getElementById("message").innerHTML =
+    "🎉 Congratulations, " + name + "!<br>" +
+    "You are successfully registered for " + selectedEvent + "!<br>" +
+    "Get ready for an amazing experience!";
+    }
+</script>
 
 </body>
 </html>
+```
