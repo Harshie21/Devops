@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Event Registration Form</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            font-family: Arial;
+            background: lightblue;
         }
 
         .container {
             width: 400px;
-            margin: 30px auto;
-            background: white;
+            margin: 50px auto;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            background: white;
         }
 
         h2 {
+          color:darkblue;
             text-align: center;
         }
 
@@ -26,56 +27,68 @@
             margin-top: 10px;
         }
 
-        input, select, textarea {
+        input, select {
             width: 100%;
             padding: 8px;
             margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            box-sizing: border-box;
         }
 
         input[type="submit"] {
-            background: #007BFF;
+            background: green;
             color: white;
+            margin-top: 15px;
             border: none;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background: #0056b3;
         }
     </style>
 </head>
+
 <body>
 
 <div class="container">
+
     <h2>Event Registration Form</h2>
 
-    <form action="#" method="post">
+    <form onsubmit="register(event)">
 
         <label>Full Name</label>
-        <input type="text" name="fullname" required>
+        <input type="text" id="name" required>
 
-         <label>Phone Number</label>
-        <input type="tel" name="phone" required>
+        <label>Phone Number</label>
+        <input type="tel" required>
+
         <label>Email</label>
-        <input type="email" name="email" required>
-
+        <input type="email" required>
 
         <label>Event</label>
-        <select name="event">
+        <select id="event" required>
             <option value="">Choose an event</option>
             <option>Workshop</option>
             <option>Hackathon</option>
             <option>Seminar</option>
-            
         </select>
 
         <input type="submit" value="Register">
 
     </form>
+
+    <p id="message"></p>
+
 </div>
+
+<script>
+    function register(event) {
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let selectedEvent = document.getElementById("event").value;
+
+        document.getElementById("message").innerHTML =
+    "🎉 Congratulations, " + name + "!<br>" +
+    "You are successfully registered for " + selectedEvent + "!<br>" +
+    "Get ready for an amazing experience!";
+    }
+</script>
 
 </body>
 </html>
