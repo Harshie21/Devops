@@ -55,10 +55,10 @@
         <input type="text" id="name" required>
 
         <label>Phone Number</label>
-        <input type="tel" required>
+        <input type="tel" id="mobile" required>
 
         <label>Email</label>
-        <input type="email" required>
+        <input type="email" id="email" required>
 
         <label>Event</label>
         <select id="event" required>
@@ -78,13 +78,41 @@
 
 <script>
     function register(event) {
-        event.preventDefault();
 
-        let name = document.getElementById("name").value;
-        let selectedEvent = document.getElementById("event").value;
+    event.preventDefault();
 
-        document.getElementById("message").innerHTML =
-    "🎉 Congratulations, " + name + "!<br>" +
+    let name = document.getElementById("name").value.trim();
+    let mobile = document.getElementById("mobile").value;
+    let email = document.getElementById("email").value.trim();
+    let selectedEvent = document.getElementById("event").value;
+
+    let message = document.getElementById("message");
+
+    // Name validation
+    if (!/^[A-Za-z ]+$/.test(name)) {
+        message.innerHTML = "Enter a valid name";
+        message.style.color = "red";
+        return;
+    }
+
+    // Mobile validation
+    if (!/^[0-9]{10}$/.test(mobile)) {
+        message.innerHTML = "Mobile number must contain 10 digits";
+        message.style.color = "red";
+        return;
+    }
+
+    // Event validation
+    if (selectedEvent === "") {
+        message.innerHTML = "Please select an event";
+        message.style.color = "red";
+        return;
+    }
+
+    // Success message
+    message.style.color = "green";
+    message.innerHTML =
+    "Congratulations, " + name + "!<br>" +
     "You are successfully registered for " + selectedEvent + "!<br>" +
     "Get ready for an amazing experience!";
     }
